@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+.venv
+venv/
+
+# Big files
+*.tar
+*.pkl
+/Preprocessing/loan_detetion/src/utils/wordsList
+Preprocessing/loan_detetion/loan_translation/data/
