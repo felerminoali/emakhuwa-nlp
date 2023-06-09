@@ -49,7 +49,7 @@ To get started with this project, follow these steps:
 
 Clone the repository to your local machine using the following command:
 
-> git clone https://github.com/felerminoali/emakhuwa.git
+> git clone https://github.com/felerminoali/emakhuwa-nlp.git
 
 
 Navigate to the desired directory, such as preprocessing, language-models, or any other section you are interested in.
