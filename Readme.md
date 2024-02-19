@@ -17,31 +17,25 @@ Emakhuwa is a Bantu language spoken by the Emakhuwa people primarily in Mozambiq
 **Project Structure**
 
 This repository is organized into the following sections:
-
- - **Data**: This directory contains various datasets for Emakhuwa NLP tasks. These datasets are curated and collected specifically for
-   training and evaluation purposes.
-   
-   **Preprocessing**: In this section, you will find preprocessing scripts and utilities to help you clean, normalize, and tokenize
-   Emakhuwa text data. These tools are designed to prepare the data for
-   further NLP tasks.
-   
-   **Language Models**: Here, you can access pretrained language models specifically fine-tuned for Emakhuwa language. These models can be
-   used for tasks like text classification, named entity recognition,
-   sentiment analysis, and more.
-   
-   **Word Embeddings**: This section provides pre-trained word embeddings for Emakhuwa language. These embeddings capture semantic
-   and syntactic information about words, which can be used as features
-   for downstream NLP tasks.
-   
-   **Evaluation Metrics**: In this directory, you will find evaluation scripts and metrics tailored for Emakhuwa NLP tasks. These tools will
-   assist you in measuring the performance of your models and
-   algorithms.
-   
-   **Resources**: This section contains additional resources, such as dictionaries, grammars, and linguistic references, which can be
-   helpful in developing Emakhuwa-specific NLP applications.
-
   
-  
+- **Datasets**
+  - Data
+    - moznews
+
+- **preprocessing**
+  - Scripts_and_utilities
+    - Clean_normalize_tokenize_Emakhuwa_text_data
+
+- **models**
+  - Pretrained_models
+
+- **Resources**
+  - Additional_resources
+    - Dictionaries
+    - Grammars
+    - Linguistic_references
+
+
 
 **Getting Started**
 
@@ -50,15 +44,6 @@ To get started with this project, follow these steps:
 Clone the repository to your local machine using the following command:
 
 > git clone https://github.com/felerminoali/emakhuwa-nlp.git
-
-
-Navigate to the desired directory, such as preprocessing, language-models, or any other section you are interested in.
-
-  
-
-Read the documentation and instructions provided within each directory to understand the usage and functionality of the tools and resources.
-
-Customize the code or use the provided resources to suit your specific NLP requirements for the Emakhuwa language.
 
   
 **License**
