@@ -145,8 +145,8 @@ def save_predition(test_set, y_test, y_pred, classifier, report, repot_txt):
 
 augment_pt_dic = False
 aug_tag = '-aug' if augment_pt_dic else ''
-data_train = pd.read_csv('data/vmw-pt/ML/train'+aug_tag+'.csv')
-data_test = pd.read_csv('data/vmw-pt/ML/test'+aug_tag+'.csv')
+data_train = pd.read_csv('data/ML/train'+aug_tag+'.csv')
+data_test = pd.read_csv('data/ML/test'+aug_tag+'.csv')
 
 data_train['match_'] = data_train.apply(lambda x: '' if x['word'] == x['match_'] else x['match_'], axis=1)
 data_train['prefix'] = data_train.apply(lambda x: contain_prefix(x['word']), axis=1)
