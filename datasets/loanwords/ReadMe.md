@@ -10,3 +10,9 @@ Published at COLING 2022
 
 # Licence
 This project is released under the MIT license. For details, please see the file LICENSE in the root directory.
+
+# Acknowledgements
+The base code is based on a previous implementation.
+
+# Contact
+[Felermino Ali](https://felerminoali.github.io/)
