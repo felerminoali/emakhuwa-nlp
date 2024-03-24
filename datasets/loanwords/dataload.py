@@ -119,7 +119,7 @@ def has_consonat_seq(word):
             # Check if both current and next letters are consonants
             if left_letter not in exceptions and right_letter not in exceptions and left_letter+right_letter not in exceptions:
                 consonat_seq.append(left_letter+right_letter)
-                
+
     for v in consonat_seq: 
         if word.__contains__(v):
             return 1  
@@ -145,8 +145,8 @@ def save_predition(test_set, y_test, y_pred, classifier, report, repot_txt):
 
 augment_pt_dic = False
 aug_tag = '-aug' if augment_pt_dic else ''
-data_train = pd.read_csv('dataset/vmw-pt/ML/train'+aug_tag+'.csv')
-data_test = pd.read_csv('.dataset/vmw-pt/ML/test'+aug_tag+'.csv')
+data_train = pd.read_csv('data/vmw-pt/ML/train'+aug_tag+'.csv')
+data_test = pd.read_csv('data/vmw-pt/ML/test'+aug_tag+'.csv')
 
 data_train['match_'] = data_train.apply(lambda x: '' if x['word'] == x['match_'] else x['match_'], axis=1)
 data_train['prefix'] = data_train.apply(lambda x: contain_prefix(x['word']), axis=1)
