@@ -9,9 +9,11 @@ Published at LREC-COLING 2024
 # Requirements
 Python 3+ is required. Pip can be used to install the packages:
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
-* Run `make-train-test-splits.ipynb`.
+# Training
+* Run `bash train-canine.sh`
+* Run `bash train-ml.sh`
 
 # Licence
 This project is released under the MIT license. For details, please see the file LICENSE in the root directory.

@@ -4,6 +4,7 @@ language_pairs=(
   "vmw-pt"
 )
 
+echo "Running Python code CANINE ONE"
 for pair in "${language_pairs[@]}"; do
   model_file="checkpoints/model_one_${pair}.pt"
   rm -r "$model_file"
@@ -13,7 +14,7 @@ done
 language_pairs=(
   "vmw-pt"
 )
-
+echo "Running Python code CANINE CONCAT"
 for pair in "${language_pairs[@]}"; do
   model_file="checkpoints/model_concat_${pair}.pt"
   rm -r "$model_file"
