@@ -16,7 +16,7 @@ Python 3+ is required. Pip can be used to install the packages:
 * Run `bash train-ml.sh`
 
 # Licence
-This project is released under the MIT license. For details, please see the file LICENSE in the root directory.
+This project is released under the MIT license.
 
 # Acknowledgements
 The base code is based on a [previous](https://github.com/csu-signal/loan-word-detection) implementation.

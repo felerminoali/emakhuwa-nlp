@@ -5,6 +5,10 @@ import datasets
 import random
 from datasets import load_dataset
 
+import pandas as pd
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+
+
 import sys
 import os
 sys.path.append('../')
@@ -78,6 +82,26 @@ def run(args):
     trainer.train()
     model.eval()
     model.save_pretrained(args.model_save)
+
+    df = pd.DataFrame(data)
+    filename_ = 'prediction-one-'+args.lang_pair+'.csv'
+    df.to_csv(args.predictions_save_path+filename_, index=False)
+
+
+    # Calculate evaluation metrics
+    accuracy = accuracy_score(true_labels, predicted_labels)
+    precision = precision_score(true_labels, predicted_labels)
+    recall = recall_score(true_labels, predicted_labels)
+    f1 = f1_score(true_labels, predicted_labels)
+
+    repot_txt = f"""
+    f1-score :  {f1:.4f}
+    precision :  {precision:.4f}
+    recall :  {recall:.4f}
+    accuracy :  {accuracy:.4f}
+    """
+
+    print(repot_txt)
 
 if __name__ == '__main__':
     # Initialize the Parser

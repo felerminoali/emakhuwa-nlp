@@ -4,6 +4,8 @@ import torch
 import datasets
 import random
 from datasets import load_dataset
+import pandas as pd
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 import sys
 import os
@@ -75,6 +77,42 @@ def run(args):
     model.eval()
     model.save_pretrained(args.model_save)
 
+
+    predictions = trainer.predict(test_dataset)
+
+    # Get the predicted labels and convert them to numpy array
+    predicted_labels = predictions.predictions.argmax(axis=1)
+
+    # Get the true labels from the test dataset and convert them to numpy array
+    true_labels = test_dataset["label"]
+
+    data = {
+        'word': test_dataset["word"],
+        'tag':test_dataset["tag"],
+        'label': true_labels,
+        'prediction': predicted_labels
+    }
+
+    df = pd.DataFrame(data)
+    filename_ = 'prediction-one-'+args.lang_pair+'.csv'
+    df.to_csv(args.predictions_save_path+filename_, index=False)
+
+
+    # Calculate evaluation metrics
+    accuracy = accuracy_score(true_labels, predicted_labels)
+    precision = precision_score(true_labels, predicted_labels)
+    recall = recall_score(true_labels, predicted_labels)
+    f1 = f1_score(true_labels, predicted_labels)
+
+    repot_txt = f"""
+    f1-score :  {f1:.4f}
+    precision :  {precision:.4f}
+    recall :  {recall:.4f}
+    accuracy :  {accuracy:.4f}
+    """
+
+    print(repot_txt)
+
 if __name__ == '__main__':
     # Initialize the Parser
     parser = argparse.ArgumentParser(description = 'Generate translations and save them to json file.')
@@ -86,7 +124,7 @@ if __name__ == '__main__':
     # Add arguments
     #parser.add_argument('-cmp','--checkpoint_model_path', type=str, metavar='', default=root_folder+'checkpoints/model-.pt', required=False, help='Model folder checkpoint path.')
     parser.add_argument('-psp','--predictions_save_path', type=str, metavar='', default=root_folder+"predictions/", required=False, help='Folder path to save predictions after inference.')
-    parser.add_argument('-dp','--data_path', type=str, metavar='', default=root_folder+"data/dataset/"+lang, required=False, help='Test json path.')
+    parser.add_argument('-dp','--data_path', type=str, metavar='', default=root_folder+"data/", required=False, help='Test json path.')
     parser.add_argument('-ms','--model_save', type=str, metavar='', default=root_folder+"checkpoints/model_concat_"+lang+".pt", required=False, help='Test json path.')
 
 
